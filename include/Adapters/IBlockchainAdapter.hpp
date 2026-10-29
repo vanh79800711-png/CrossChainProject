@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "../Common/Types.hpp"
+#include "../Common/Transaction.hpp"
 
 using namespace std;
 
@@ -14,6 +15,9 @@ public:
 
     // Kiểm tra số dư tài khoản
     virtual double getBalance(const string& address) = 0;
+
+    // [BƯỚC 2 - MỚI] Gửi giao dịch đã được Factory dựng sẵn lên mạng giả lập
+    virtual TransactionResult sendTransaction(const ITransaction& tx) = 0;
 
     // Khóa tài sản tại chuỗi nguồn (Lock Asset)
     virtual bool lockAsset(const string& sender, double amount) = 0;
